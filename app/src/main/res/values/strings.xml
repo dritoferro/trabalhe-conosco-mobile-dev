@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">AndroidDev</string>
+    <string name="app_name">Android Dev Test</string>
+    <string name="desc_image">Image from a person</string>
 </resources>
