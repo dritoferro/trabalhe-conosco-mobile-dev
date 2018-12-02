@@ -1,4 +1,4 @@
-package tagliaferro.adriano.androiddev.viewmodellist
+package tagliaferro.adriano.androiddev
 
 import android.arch.lifecycle.ViewModel
 import tagliaferro.adriano.androiddev.data.Repository
