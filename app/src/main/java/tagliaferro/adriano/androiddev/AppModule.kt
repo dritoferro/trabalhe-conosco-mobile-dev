@@ -10,7 +10,7 @@ import tagliaferro.adriano.androiddev.view.MainActivity
 val appModule = module {
     single { ListViewModel() }
     single { ListRecycler(get()) }
-    single { UserRepositoryImpl() }
+    single { UserRepositoryImpl(get()) }
     single { MainActivity() }
-    single { MainPresenterImpl() }
+    single { MainPresenterImpl(get(), get()) }
 }

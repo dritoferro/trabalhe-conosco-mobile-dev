@@ -9,11 +9,13 @@ import tagliaferro.adriano.androiddev.appModule
 import tagliaferro.adriano.androiddev.data.dataModule
 import tagliaferro.adriano.androiddev.feature.ListRecycler
 import tagliaferro.adriano.androiddev.feature.ListViewModel
+import tagliaferro.adriano.androiddev.presenter.MainPresenterImpl
 
 class MainActivity : AppCompatActivity(), MainView {
 
     private val recycler: ListRecycler by inject()
     private val viewModel: ListViewModel by inject()
+    private val presenter: MainPresenterImpl by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,11 +23,15 @@ class MainActivity : AppCompatActivity(), MainView {
 
         startKoin(this, listOf(dataModule, appModule))
 
-        loadData()
+        loadUsers()
     }
 
-    private fun loadData() {
-        //TODO implementar a função de carregar os dados a partir do repository no viewModel e depois aplicar o viewModel ao adapter...
+    override fun loadUsers() {
+        presenter.loadUsers()
+    }
+
+    override fun updateUI(pos: Int) {
+        recycler.notifyItemInserted(pos)
     }
 
 
