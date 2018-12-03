@@ -1,12 +1,16 @@
-package tagliaferro.adriano.androiddev
+package tagliaferro.adriano.androiddev.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import org.koin.android.ext.android.inject
 import org.koin.android.ext.android.startKoin
+import tagliaferro.adriano.androiddev.R
+import tagliaferro.adriano.androiddev.appModule
 import tagliaferro.adriano.androiddev.data.dataModule
+import tagliaferro.adriano.androiddev.feature.ListRecycler
+import tagliaferro.adriano.androiddev.feature.ListViewModel
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), MainView {
 
     private val recycler: ListRecycler by inject()
     private val viewModel: ListViewModel by inject()

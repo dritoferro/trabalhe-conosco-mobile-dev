@@ -1,4 +1,4 @@
-package tagliaferro.adriano.androiddev
+package tagliaferro.adriano.androiddev.feature
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.list_item_cardview.view.*
+import tagliaferro.adriano.androiddev.R
 import tagliaferro.adriano.androiddev.domain.User
 
 class ListRecycler(private var users: List<User>) : RecyclerView.Adapter<ListRecycler.ViewHolder>() {
