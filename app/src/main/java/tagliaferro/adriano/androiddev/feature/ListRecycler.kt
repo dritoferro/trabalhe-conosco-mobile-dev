@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.list_item_cardview.view.*
 import tagliaferro.adriano.androiddev.R
 import tagliaferro.adriano.androiddev.domain.User
 
-class ListRecycler(private var users: List<User>) : RecyclerView.Adapter<ListRecycler.ViewHolder>() {
+class ListRecycler(private var users: List<User>?) : RecyclerView.Adapter<ListRecycler.ViewHolder>() {
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): ViewHolder {
         val view = LayoutInflater.from(p0.context).inflate(R.layout.list_item_cardview, p0, false)
@@ -21,16 +21,15 @@ class ListRecycler(private var users: List<User>) : RecyclerView.Adapter<ListRec
 
     }
 
-    override fun getItemCount(): Int = users.size
+    override fun getItemCount(): Int = users?.size ?: 0
 
     override fun onBindViewHolder(p0: ViewHolder, p1: Int) {
-        p0.let {
-            p0.textName.text = users[p1].name
-            p0.txtUser.text = users[p1].username
-            Glide.with(p0.itemView).load(users[p1].img).apply(
-                RequestOptions().circleCrop()
-            ).into(p0.image)
-        }
+
+        p0.textName.text = users?.get(p1)?.name
+        p0.txtUser.text = users?.get(p1)?.username
+        Glide.with(p0.itemView).load(users?.get(p1)?.img).apply(
+            RequestOptions().circleCrop()
+        ).into(p0.image)
     }
 
 
@@ -38,5 +37,9 @@ class ListRecycler(private var users: List<User>) : RecyclerView.Adapter<ListRec
         val textName: TextView = itemView.card_textName
         val txtUser: TextView = itemView.card_textUser
         val image: ImageView = itemView.card_image
+    }
+
+    fun updateList(users: List<User>?) {
+        this.users = users
     }
 }

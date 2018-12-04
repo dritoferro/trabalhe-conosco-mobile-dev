@@ -14,17 +14,21 @@ class Repository {
     fun getUsers(): List<User>? {
         var call = repo.getUsersList()
         var users: List<User>? = null
-        call.enqueue(object : Callback<List<User>> {
-            override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
-                if (response.isSuccessful) {
-                    users = response.body()
+        try {
+            call.enqueue(object : Callback<List<User>> {
+                override fun onResponse(call: Call<List<User>>, response: Response<List<User>>) {
+                    if (response.isSuccessful) {
+                        users = response.body()
+                    }
                 }
-            }
 
-            override fun onFailure(call: Call<List<User>>, t: Throwable) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-        })
+                override fun onFailure(call: Call<List<User>>, t: Throwable) {
+                    println(t.message)
+                }
+            })
+        }catch (e : Exception){
+            println(e.message)
+        }
         return users
     }
 }

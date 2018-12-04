@@ -1,17 +1,15 @@
 package tagliaferro.adriano.androiddev.presenter
 
-import tagliaferro.adriano.androiddev.model.UserRepository
+import android.arch.lifecycle.Observer
 import tagliaferro.adriano.androiddev.view.MainView
 
-class MainPresenterImpl(val view: MainView, val repo: UserRepository) : MainPresenter {
+class MainPresenterImpl(val view: MainView) : MainPresenter {
 
 
     override fun loadUsers() {
-        repo.getUsersList()
+        //viewModel.getUsersFromModel()
+          //  .observe(view.getLifecycleOwner(), Observer { usersList -> view.updateUI(usersList) })
     }
 
-    override fun updateUI() {
-        view.updateUI(1)
-    }
 
 }

@@ -1,11 +1,16 @@
 package tagliaferro.adriano.androiddev.model
 
+import tagliaferro.adriano.androiddev.data.Repository
 import tagliaferro.adriano.androiddev.domain.User
-import tagliaferro.adriano.androiddev.presenter.MainPresenter
 
-class UserRepositoryImpl(presenter: MainPresenter) : UserRepository {
+class UserRepositoryImpl(val repo: Repository) : UserRepository {
 
     override fun getUsersList(): List<User>? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            return repo.getUsers()
+        } catch (e: Exception) {
+            println(e.message)
+        }
+        return emptyList()
     }
 }

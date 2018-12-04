@@ -6,7 +6,7 @@ import tagliaferro.adriano.androiddev.domain.User
 
 interface PicPayService {
 
-    @GET("/users")
+    @GET("users")
     fun getUsersList(): Call<List<User>>
 
 }

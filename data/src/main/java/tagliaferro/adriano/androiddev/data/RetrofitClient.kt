@@ -7,7 +7,7 @@ class RetrofitClient {
 
 
     private val client = Retrofit.Builder()
-        .baseUrl("http://careers.picpay.com/tests/mobdev")
+        .baseUrl("http://careers.picpay.com/tests/mobdev/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

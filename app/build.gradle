@@ -38,6 +38,7 @@ dependencies {
     // Architecture Components
     implementation "android.arch.lifecycle:runtime:$archcomp_version"
     implementation "android.arch.lifecycle:viewmodel:$archcomp_version"
+    implementation "android.arch.lifecycle:extensions:$archcomp_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     kapt "android.arch.lifecycle:compiler:$archcomp_version"
 

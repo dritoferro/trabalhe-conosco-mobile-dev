@@ -4,5 +4,4 @@ interface MainPresenter {
 
     fun loadUsers()
 
-    fun updateUI()
 }
